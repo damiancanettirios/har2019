@@ -29,47 +29,7 @@ const Home = ({ data }) => {
             flexWrap: `wrap`,
           }}
         >
-          {topInsights.map(({ node }) => (
-            <div
-              key={node.id}
-              style={{
-                border: `1px solid #E7ECEF`,
-                borderTop: `3px solid #8e44ad`,
-                marginBottom: 20,
-                padding: 0,
-                maxWidth: 400,
-                alignSelf: `auto`,
-              }}
-            >
-              <Link to={`/insights/${node.slug}`}>
-                <img
-                  alt={node.imageTitle.file.fileName}
-                  src={node.imageTitle.file.url}
-                  style={{ maxWidth: 400 }}
-                />
-              </Link>
-              <div style={{ padding: 10 }}>
-                <Link
-                  to={`/insights/${node.slug}`}
-                  style={{ textDecoration: `none` }}
-                >
-                  <h4
-                    style={{
-                      fontWeight: `bold`,
-                      textAlign: `left`,
-                      fontSize: `1.25rem`,
-                      paddingBottom: 10,
-                    }}
-                  >
-                    {node.title}
-                  </h4>
-                </Link>
-                <p>{node.description.description}</p>
-              </div>
-            </div>
-          ))}
-
-          {/* {valuePropStages.map(({ node }) => (
+          {valuePropStages.map(({ node }) => (
             <div
               key={node.id}
               style={{
@@ -83,17 +43,17 @@ const Home = ({ data }) => {
               }}
             >
               <p>New text</p>
-              <img
+              {/* <img
                 src={node.image.file.url}
                 alt={node.image.description}
                 style={{ maxWidth: 300, height: 290, margin: `0px auto` }}
-              />
+              /> */}
               <h2>{node.title}</h2>
-              <p style={{ fontSize: `1.1rem`, textAlign: `center` }}>
+              {/* <p style={{ fontSize: `1.1rem`, textAlign: `center` }}>
                 {node.description.description}
-              </p>
+              </p> */}
             </div>
-          ))} */}
+          ))}
         </div>
         <Button link="programs">{valueProp.cta}</Button>
         <div style={{ paddingTop: 40 }}>
