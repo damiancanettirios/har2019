@@ -184,7 +184,10 @@ export const HomeQuery = graphql`
       cta
       ctaPage
     }
-    topInsights: allContentfulBlogPost(limit: 2) {
+    topInsights: allContentfulBlogPost(
+      limit: 2
+      filter: { postType: { eq: "article" } }
+    ) {
       edges {
         node {
           id

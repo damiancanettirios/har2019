@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import { css } from "@emotion/core"
 
 import Layout from "../components/layout"
 import Hero from "../components/hero"
@@ -12,7 +13,9 @@ const InsightsPage = ({ data }) => {
     <Layout pageTitle="Insights">
       <Hero heroImage={heroImage} heroContent={heroContent} />
       <div style={{ width: `85%`, margin: `0 auto` }}>
-        <h1 style={{ margin: `40px 0px 40px 0px` }}>Articles to explore</h1>
+        <h1 style={{ margin: `40px 0px 40px 0px` }}>
+          Articles to explore and Notes from interesting Talks
+        </h1>
         <div
           style={{
             display: `flex`,
@@ -24,20 +27,39 @@ const InsightsPage = ({ data }) => {
           {posts.map(({ node }) => (
             <div
               key={node.id}
-              style={{
-                border: `1px solid #E7ECEF`,
-                borderTop: `3px solid #8e44ad`,
-                margin: `0px 20px 20px 0px`,
-                padding: 0,
-                paddingBottom: 10,
-                width: 300,
-                alignSelf: `auto`,
-              }}
+              css={css`
+                border: ${node.postType === "article"
+                  ? "1px solid #8e44ad"
+                  : "1px solid #27ae60"};
+                margin: 0px 20px 20px 0px;
+                padding: 0;
+                padding-bottom: 10;
+                max-width: 275px;
+                align-self: auto;
+              `}
             >
+              <div
+                css={css`
+                  max-height: 40px;
+                  background: ${node.postType === "article"
+                    ? "#8e44ad"
+                    : "#27ae60"};
+                  border: ${node.postType === "article"
+                    ? "2px solid #8e44ad"
+                    : "2px solid #27ae60"};
+                  margin: 0px;
+                  padding-left: 8px;
+                  text-transform: uppercase;
+                  font-size: 0.75rem;
+                  color: white;
+                `}
+              >
+                <p>{node.postType}</p>
+              </div>
               <img
                 src={node.imageTitle.file.url}
                 alt={node.imageTitle.title}
-                style={{ width: 300 }}
+                style={{ maxWidth: 273, margin: `0 auto` }}
               />
               <Link
                 to={`/insights/${node.slug}`}
@@ -46,7 +68,7 @@ const InsightsPage = ({ data }) => {
                 <h3
                   style={{
                     textAlign: `left`,
-                    padding: `10px 0px 0px 10px`,
+                    padding: `10px 12px 0px 12px`,
                     fontSize: `1.25rem`,
                   }}
                 >
@@ -58,7 +80,7 @@ const InsightsPage = ({ data }) => {
                   fontWeight: `normal`,
                   marginTop: 10,
                   textAlign: `left`,
-                  padding: `0px 10px 0px 10px`,
+                  padding: `0px 12px 5px 12px`,
                   fontSize: `1.1rem`,
                 }}
               >
@@ -83,6 +105,7 @@ export const insightsQuery = graphql`
           title
           publishDate(formatString: "MMMM Do, YYYY")
           slug
+          postType
           description {
             description
           }
