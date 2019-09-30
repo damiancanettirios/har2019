@@ -3,8 +3,6 @@ import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import Hero from "../components/hero"
-import GridBox from "../components/grid-box"
-import GridItem from "../components/grid-item"
 import Button from "../components/button"
 import SecondaryButton from "../components/secondary-button"
 
@@ -23,9 +21,27 @@ const Home = ({ data }) => {
         <p style={{ fontSize: `1.5rem`, textAlign: `center` }}>
           {valueProp.shortDescript.shortDescript}
         </p>
-        <GridBox>
+        <div
+          style={{
+            display: `flex`,
+            flexDirection: `row`,
+            justifyContent: `space-evenly`,
+            flexWrap: `wrap`,
+          }}
+        >
           {valuePropStages.map(({ node }) => (
-            <GridItem key={node.id}>
+            <div
+              key={node.id}
+              style={{
+                alignSelf: `center`,
+                display: `flex`,
+                flexDirection: `column`,
+                justifyContent: `center`,
+                maxWidth: `400px`,
+                padding: `1rem 0 1rem 0`,
+                margin: `1rem 0.5rem 0 0.5rem`,
+              }}
+            >
               <img
                 src={node.image.file.url}
                 alt={node.image.description}
@@ -35,9 +51,9 @@ const Home = ({ data }) => {
               <p style={{ fontSize: `1.1rem`, textAlign: `center` }}>
                 {node.description.description}
               </p>
-            </GridItem>
+            </div>
           ))}
-        </GridBox>
+        </div>
         <Button link="programs">{valueProp.cta}</Button>
         <div style={{ paddingTop: 40 }}>
           <h1 style={{ paddingBottom: 20 }}>{insights.title}</h1>
