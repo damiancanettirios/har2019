@@ -10,7 +10,7 @@ const Home = ({ data }) => {
   const heroContent = data.heroContent
   const heroImage = data.heroImage.imageTitle
   const valueProp = data.valueProp
-  const valuePropStages = data.valuePropStages.edges
+  const valuePropStages = data.valuePropStages
   const insights = data.insights
   const topInsights = data.topInsights.edges
   return (
@@ -29,7 +29,9 @@ const Home = ({ data }) => {
             flexWrap: `wrap`,
           }}
         >
-          {valuePropStages.map(({ node }) => (
+          <h1>{JSON.stringify(valuePropStages)}</h1>
+
+          {/* {valuePropStages.map(({ node }) => (
             <div
               key={node.id}
               style={{
@@ -42,18 +44,17 @@ const Home = ({ data }) => {
                 margin: `1rem 0.5rem 0 0.5rem`,
               }}
             >
-              <p>New text</p>
-              {/* <img
+              <img
                 src={node.image.file.url}
                 alt={node.image.description}
                 style={{ maxWidth: 300, height: 290, margin: `0px auto` }}
-              /> */}
+              />
               <h2>{node.title}</h2>
-              {/* <p style={{ fontSize: `1.1rem`, textAlign: `center` }}>
+              <p style={{ fontSize: `1.1rem`, textAlign: `center` }}>
                 {node.description.description}
-              </p> */}
+              </p>
             </div>
-          ))}
+          ))} */}
         </div>
         <Button link="programs">{valueProp.cta}</Button>
         <div style={{ paddingTop: 40 }}>
