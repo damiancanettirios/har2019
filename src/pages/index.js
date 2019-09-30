@@ -29,6 +29,9 @@ const Home = ({ data }) => {
             flexWrap: `wrap`,
           }}
         >
+          <div>
+            <p>Text placeholder</p>
+          </div>
           {valuePropStages.map(({ node }) => (
             <div
               key={node.id}
