@@ -29,9 +29,6 @@ const Home = ({ data }) => {
             flexWrap: `wrap`,
           }}
         >
-          <div>
-            <p>Text placeholder</p>
-          </div>
           {valuePropStages.map(({ node }) => (
             <div
               key={node.id}
@@ -45,6 +42,7 @@ const Home = ({ data }) => {
                 margin: `1rem 0.5rem 0 0.5rem`,
               }}
             >
+              <p>New text</p>
               <img
                 src={node.image.file.url}
                 alt={node.image.description}
