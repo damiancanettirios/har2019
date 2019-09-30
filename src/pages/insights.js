@@ -11,13 +11,13 @@ const InsightsPage = ({ data }) => {
   return (
     <Layout pageTitle="Insights">
       <Hero heroImage={heroImage} heroContent={heroContent} />
-      <div style={{ width: `90%`, margin: `0 auto` }}>
+      <div style={{ width: `85%`, margin: `0 auto` }}>
         <h1 style={{ margin: `40px 0px 40px 0px` }}>Articles to explore</h1>
         <div
           style={{
             display: `flex`,
             flexDirection: `row`,
-            justifyContent: `flex-start`,
+            justifyContent: `center`,
             flexWrap: `wrap`,
           }}
         >
@@ -30,14 +30,14 @@ const InsightsPage = ({ data }) => {
                 margin: `0px 20px 20px 0px`,
                 padding: 0,
                 paddingBottom: 10,
-                width: 350,
+                width: 300,
                 alignSelf: `auto`,
               }}
             >
               <img
                 src={node.imageTitle.file.url}
                 alt={node.imageTitle.title}
-                style={{ width: 350 }}
+                style={{ width: 300 }}
               />
               <Link
                 to={`/insights/${node.slug}`}
