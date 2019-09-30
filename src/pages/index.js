@@ -157,7 +157,7 @@ export const HomeQuery = graphql`
       ctaPage
     }
     valuePropStages: allContentfulBlurbs(
-      filter: { pageContent: { page: { eq: "Home" } } }
+      filter: { page: { eq: "Home" } }
       sort: { fields: [sequence], order: ASC }
     ) {
       edges {
