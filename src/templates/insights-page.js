@@ -37,7 +37,7 @@ const InsightPostTemplate = ({ data }) => {
 
   const opts = {
     height: "250",
-    width: "400",
+    width: "350",
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
@@ -59,7 +59,14 @@ const InsightPostTemplate = ({ data }) => {
             <YouTube videoId={post.videoUrl} opts={opts} />
           </div>
         ) : null}
-        <div style={{ marginTop: 60, marginBottom: 60, width: `95%` }}>
+        <div
+          style={{
+            marginTop: 60,
+            marginBottom: 60,
+            width: `95%`,
+            margin: `0 auto`,
+          }}
+        >
           {insightContent}
         </div>
       </div>

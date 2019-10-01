@@ -50,9 +50,12 @@ const About = ({ data }) => {
                   <SocialLink link={node.email}>
                     <FontAwesomeIcon icon={faAt} size="lg" />
                   </SocialLink>
-                ) : (
-                  <section />
-                )}
+                ) : null}
+                {node.longBio != null ? (
+                  <div>
+                    <p>{node.longBio.longBio}</p>
+                  </div>
+                ) : null}
               </div>
             </DisplayBox>
           ))}
@@ -113,7 +116,6 @@ export const AboutQuery = graphql`
             }
           }
           longBio {
-            id
             longBio
           }
         }
