@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import YouTube from "react-youtube"
 
 import Layout from "../components/layout"
 import Hero from "../components/hero"
@@ -34,6 +35,15 @@ const InsightPostTemplate = ({ data }) => {
     options
   )
 
+  const opts = {
+    height: "250",
+    width: "400",
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 0,
+    },
+  }
+
   return (
     <Layout pageTitle={`${post.title} | Hunter Applied Research`}>
       <Hero heroImage={heroImage} heroContent={post} />
@@ -41,11 +51,14 @@ const InsightPostTemplate = ({ data }) => {
         style={{
           width: `80%`,
           margin: `0 auto`,
-          paddingTop: 60,
-          paddingBottom: 60,
         }}
       >
-        {insightContent}
+        {post.postType === "video notes" ? (
+          <div style={{ paddingTop: 60, textAlign: `center` }}>
+            <YouTube videoId={post.videoUrl} opts={opts} />
+          </div>
+        ) : null}
+        <div style={{ marginTop: 60, marginBottom: 60 }}>{insightContent}</div>
       </div>
     </Layout>
   )
@@ -69,6 +82,8 @@ export const pageQuery = graphql`
       childContentfulBlogPostContentRichTextNode {
         json
       }
+      videoUrl
+      postType
     }
   }
 `
