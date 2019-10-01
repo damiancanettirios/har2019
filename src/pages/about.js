@@ -53,8 +53,12 @@ const About = ({ data }) => {
                 ) : null}
               </div>
               {node.longBio != null ? (
-                <div>
-                  <p>{node.longBio.longBio}</p>
+                <div
+                  style={{ width: `90%`, marginTop: 30, background: `#ecf0f1` }}
+                >
+                  <p style={{ fontSize: `0.85rem`, textAlign: `left` }}>
+                    {node.longBio.longBio}
+                  </p>
                 </div>
               ) : null}
             </DisplayBox>
