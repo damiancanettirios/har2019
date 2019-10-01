@@ -59,6 +59,10 @@ const Layout = ({ children, pageTitle, heroImage, heroContent }) => {
         <html lang="en" />
         <title>{pageTitle + " | " + title}</title>
         <meta name="description" content={description} />
+        <meta
+          name="google-site-verification"
+          content="B4kpPoGcBE4EpS2GtF_SUxhmOIOAI4ib9KsqEeG2SWY"
+        />
       </Helmet>
       <Header />
       <main

@@ -41,7 +41,7 @@ const InsightPostTemplate = ({ data }) => {
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
-      origin: "https://compassionate-aryabhata-12c5c6.netlify.com/",
+      origin: "https://hunterapplied.com/",
     },
   }
 

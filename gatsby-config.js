@@ -51,6 +51,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-113326942-1",
+      },
+    },
+    {
       resolve: `gatsby-plugin-web-font-loader`,
       options: {
         google: {
