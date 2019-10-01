@@ -26,7 +26,7 @@ const About = ({ data }) => {
         </p>
         <GridBox>
           {members.map(({ node }) => (
-            <DisplayBox key={node.name} style={{ minHeight: `326.75px` }}>
+            <DisplayBox key={node.name}>
               <img alt={node.name} src={node.image.file.url} />
               <h4 style={{ fontSize: `1.5rem` }}>{node.name}</h4>
               <p
