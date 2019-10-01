@@ -1,7 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faAt } from "@fortawesome/free-solid-svg-icons"
+import {
+  faAt,
+  faChevronUp,
+  faChevronDown,
+} from "@fortawesome/free-solid-svg-icons"
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons"
 
 import Layout from "../components/layout"
@@ -9,6 +13,9 @@ import Hero from "../components/hero"
 import GridBox from "../components/grid-box"
 import DisplayBox from "../components/display-box"
 import SocialLink from "../components/social-link"
+
+//material UI
+import IconButton from "@material-ui/core/Button"
 
 const About = ({ data }) => {
   const heroContent = data.heroContent
@@ -56,7 +63,32 @@ const About = ({ data }) => {
                 <div
                   style={{ width: `90%`, marginTop: 30, background: `#ecf0f1` }}
                 >
-                  <p style={{ fontSize: `0.85rem`, textAlign: `left` }}>
+                  <div
+                    style={{
+                      display: `flex`,
+                      flexDirection: `row`,
+                      justifyContent: `space-between`,
+                    }}
+                  >
+                    <p
+                      style={{
+                        fontSize: `1.1rem`,
+                        textAlign: `left`,
+                      }}
+                    >
+                      BACKGROUND
+                    </p>
+                    <IconButton>
+                      <FontAwesomeIcon icon={faChevronDown} />
+                    </IconButton>
+                  </div>
+                  <p
+                    style={{
+                      fontSize: `1.1rem`,
+                      textAlign: `left`,
+                      marginTop: 20,
+                    }}
+                  >
                     {node.longBio.longBio}
                   </p>
                 </div>
