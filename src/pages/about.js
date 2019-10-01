@@ -51,12 +51,12 @@ const About = ({ data }) => {
                     <FontAwesomeIcon icon={faAt} size="lg" />
                   </SocialLink>
                 ) : null}
-                {node.longBio != null ? (
-                  <div>
-                    <p>{node.longBio.longBio}</p>
-                  </div>
-                ) : null}
               </div>
+              {node.longBio != null ? (
+                <div>
+                  <p>{node.longBio.longBio}</p>
+                </div>
+              ) : null}
             </DisplayBox>
           ))}
         </GridBox>
