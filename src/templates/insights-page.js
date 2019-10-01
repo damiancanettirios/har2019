@@ -49,7 +49,7 @@ const InsightPostTemplate = ({ data }) => {
       <Hero heroImage={heroImage} heroContent={post} />
       <div
         style={{
-          width: `80%`,
+          width: `100%`,
           margin: `0 auto`,
         }}
       >
@@ -58,7 +58,9 @@ const InsightPostTemplate = ({ data }) => {
             <YouTube videoId={post.videoUrl} opts={opts} />
           </div>
         ) : null}
-        <div style={{ marginTop: 60, marginBottom: 60 }}>{insightContent}</div>
+        <div style={{ marginTop: 60, marginBottom: 60, width: `95%` }}>
+          {insightContent}
+        </div>
       </div>
     </Layout>
   )
