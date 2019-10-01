@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
@@ -18,6 +18,7 @@ import SocialLink from "../components/social-link"
 import IconButton from "@material-ui/core/Button"
 
 const About = ({ data }) => {
+  const [active, setActive] = useState(true)
   const heroContent = data.heroContent
   const heroImage = data.heroImage.imageTitle
   const team = data.team
@@ -77,19 +78,27 @@ const About = ({ data }) => {
                     >
                       BACKGROUND
                     </p>
-                    <IconButton>
-                      <FontAwesomeIcon icon={faChevronDown} />
+                    <IconButton onClick={() => setActive(!active)}>
+                      {!active ? (
+                        <FontAwesomeIcon icon={faChevronDown} />
+                      ) : (
+                        <FontAwesomeIcon icon={faChevronUp} />
+                      )}
                     </IconButton>
                   </div>
-                  <p
-                    style={{
-                      fontSize: `1.1rem`,
-                      textAlign: `left`,
-                      marginTop: 20,
-                    }}
-                  >
-                    {node.longBio.longBio}
-                  </p>
+                  {!active ? (
+                    <section />
+                  ) : (
+                    <p
+                      style={{
+                        fontSize: `1.1rem`,
+                        textAlign: `left`,
+                        marginTop: 20,
+                      }}
+                    >
+                      {node.longBio.longBio}
+                    </p>
+                  )}
                 </div>
               ) : null}
             </DisplayBox>
