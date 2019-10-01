@@ -6,6 +6,7 @@ import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons"
 
 import Layout from "../components/layout"
 import Hero from "../components/hero"
+import LongBio from "../components/long-bio"
 import GridBox from "../components/grid-box"
 import DisplayBox from "../components/display-box"
 import SocialLink from "../components/social-link"
