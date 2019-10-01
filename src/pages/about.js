@@ -61,19 +61,25 @@ const About = ({ data }) => {
                 ) : null}
               </div>
               {node.longBio != null ? (
-                <div style={{ marginTop: 30, background: `#ecf0f1` }}>
+                <div
+                  style={{
+                    marginTop: 30,
+                    background: `#ecf0f1`,
+                    width: `100%`,
+                  }}
+                >
                   <div
                     style={{
                       display: `flex`,
                       flexDirection: `row`,
                       justifyContent: `space-between`,
-                      width: `95%`,
                     }}
                   >
                     <p
                       style={{
                         fontSize: `1.1rem`,
                         textAlign: `left`,
+                        paddingLeft: 5,
                       }}
                     >
                       BACKGROUND
@@ -94,6 +100,7 @@ const About = ({ data }) => {
                         fontSize: `1.1rem`,
                         textAlign: `left`,
                         marginTop: 20,
+                        width: `90%`,
                       }}
                     >
                       {node.longBio.longBio}
