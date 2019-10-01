@@ -6,6 +6,7 @@ import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons"
 
 import Layout from "../components/layout"
 import Hero from "../components/hero"
+import GridBox from "../components/grid-box"
 import DisplayBox from "../components/display-box"
 import SocialLink from "../components/social-link"
 
@@ -17,15 +18,26 @@ const About = ({ data }) => {
   return (
     <Layout pageTitle="About">
       <Hero heroImage={heroImage} heroContent={heroContent} />
-      <div style={{ width: `90%`, margin: `0 auto` }}>
+      <div style={{ width: `85%`, margin: `0 auto` }}>
         <h1 style={{ marginTop: 40 }}>{team.title}</h1>
-        <h2>{team.shortDescript.shortDescript}</h2>
-        <div style={{ display: "flex", flexDirection: "row" }}>
+        <p style={{ fontSize: `1.1rem`, textAlign: `center` }}>
+          {team.shortDescript.shortDescript}
+        </p>
+        <GridBox>
           {members.map(({ node }) => (
             <DisplayBox key={node.name}>
               <img alt={node.name} src={node.image.file.url} />
-              <h3>{node.name}</h3>
-              <h3>{node.title}</h3>
+              <h4 style={{ fontSize: `1.5rem` }}>{node.name}</h4>
+              <p
+                style={{
+                  fontSize: `1.1rem`,
+                  textAlign: `center`,
+                  marginTop: 10,
+                  marginBottom: 10,
+                }}
+              >
+                {node.title}
+              </p>
               <div style={{ display: "flex", flexDirection: "row" }}>
                 {node.linkedIn != null ? (
                   <SocialLink link={node.linkedIn}>
@@ -44,7 +56,7 @@ const About = ({ data }) => {
               </div>
             </DisplayBox>
           ))}
-        </div>
+        </GridBox>
       </div>
     </Layout>
   )

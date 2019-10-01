@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { css } from "@emotion/core"
 
 import Layout from "../components/layout"
 import Hero from "../components/hero"
@@ -16,35 +17,53 @@ const Approach = ({ data }) => {
       <Hero heroImage={heroImage} heroContent={heroContent} />
       <div style={{ width: `90%`, margin: `0 auto` }}>
         <h1 style={{ marginTop: 40 }}>How We Work</h1>
-        <div style={{ display: `flex`, flexDirection: `column` }}>
+        <GridBox style={{ flexDirection: `column` }}>
           {steps.map(({ node }) => (
-            <div style={{ paddingTop: 60 }}>
-              <GridBox key={node.id}>
-                <div style={{ maxWidth: 400 }}>
-                  <img
-                    src={node.image.file.url}
-                    alt={node.image.description}
-                    style={{ maxWidth: 400 }}
-                  />
-                </div>
-                <GridItem>
-                  <h3>{node.title}</h3>
-                  <h3 style={{ fontWeight: `normal`, marginTop: 20 }}>
-                    {node.description.description}
-                  </h3>
-                </GridItem>
-              </GridBox>
-            </div>
+            <GridBox key={node.id} style={{ paddingTop: 60 }}>
+              <div>
+                <img
+                  src={node.image.file.url}
+                  alt={node.image.description}
+                  css={css`
+                    width: 80vw;
+                    margin: 0 auto;
+                    margin-top: 50px;
+
+                    @media (min-width: 701px) {
+                      max-width: 400px;
+                    }
+                  `}
+                />
+              </div>
+              <GridItem>
+                <h4 style={{ fontSize: `1.5rem` }}>{node.title}</h4>
+                <p
+                  style={{
+                    fontSize: `1.1rem`,
+                    textAlign: `center`,
+                    marginTop: 20,
+                  }}
+                >
+                  {node.description.description}
+                </p>
+              </GridItem>
+            </GridBox>
           ))}
-        </div>
-        <h1 style={{ marginTop: 40 }}>Our Service Model</h1>
+        </GridBox>
+        <h1 style={{ marginTop: 100 }}>Our Service Model</h1>
         <GridBox>
           {model.map(({ node }) => (
             <GridItem key={node.id}>
-              <h3>{node.title}</h3>
-              <h3 style={{ fontWeight: `normal` }}>
+              <h4 style={{ fontSize: `1.5rem` }}>{node.title}</h4>
+              <p
+                style={{
+                  fontSize: `1.1rem`,
+                  textAlign: `center`,
+                  marginTop: 20,
+                }}
+              >
                 {node.description.description}
-              </h3>
+              </p>
             </GridItem>
           ))}
         </GridBox>

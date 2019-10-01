@@ -10,7 +10,7 @@ const ImageBackground = styled(BackgroundImage)`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 100%;
+  width: 100vw;
   /* override the default margin for sibling elements  */
   + * {
     margin-top: 0;
@@ -23,14 +23,20 @@ const TextBox = styled("div")`
   align-items: center;
   text-align: center;
   height: 100%;
+  margin: 0 auto;
   justify-content: flex-end;
   padding: 10rem 0 14rem 0;
-  width: 100%;
+  width: 95%;
   color: white;
   h1 {
     text-shadow: 1px 1px 3px #eeddff66;
-    font-size: 4rem;
+    font-size: 2.5rem;
+    margin: 0 auto;
     color: white;
+
+    @media (min-width: 701px) {
+      font-size: 4rem;
+    }
   }
   h2 {
     color: white;
@@ -60,6 +66,7 @@ const Hero = ({ heroImage, heroContent }) => {
           background-repeat: repeat-x, repeat;
           background-size: 3200px 280px, auto;
           height: 100%;
+          width: 100vw;
         `}
       >
         <TextBox>
@@ -68,7 +75,7 @@ const Hero = ({ heroImage, heroContent }) => {
           {heroContent.page === "Home" ? (
             <h2>
               <Link
-                to={heroContent.ctaPage}
+                to={`/${heroContent.ctaPage}`}
                 css={css`
                   text-decoration: none;
                   &:hover {

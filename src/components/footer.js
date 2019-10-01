@@ -17,16 +17,26 @@ const FooterDiv = styled("div")`
   padding: 2rem;
   background: #272932;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
   color: lightgrey;
+
+  @media (min-width: 701px) {
+    flex-direction: row;
+  }
 `
 
 const FooterList = styled("section")`
-  margin: 0;
-  padding: 0;
+  margin: 30px 0px 0px 0px;
+  padding: 0px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 701px) {
+    margin: 0px;
+    align-items: flex-start;
+  }
 `
 
 const SocialList = styled("div")`
@@ -90,8 +100,9 @@ const Footer = () => {
         </FooterList>
       </FooterDiv>
       <FooterDiv>
-        <FooterList style={{ margin: `0 auto` }}>
-          {"Hunter Applied Research Pty Ltd | ABN 71 616 755 161"}
+        <FooterList style={{ margin: `0 auto`, alignItems: `center` }}>
+          <span>{"Hunter Applied Research Pty Ltd"}</span>
+          <span>{"ABN 71 616 755 161"}</span>
         </FooterList>
       </FooterDiv>
     </>

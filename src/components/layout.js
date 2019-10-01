@@ -22,6 +22,7 @@ const Layout = ({ children, pageTitle, heroImage, heroContent }) => {
           html,
           body {
             margin: 0;
+            overflow-x: hidden;
             color: #555;
             font-family: "Raleway", BlinkMacSystemFont, "Segoe UI", Roboto,
               Helvetica, Arial, sans-serif, "Apple Color Emoji",

@@ -1,8 +1,9 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Hero from "../components/hero"
+import LatestInsights from "../components/latest-insights"
 import Button from "../components/button"
 import SecondaryButton from "../components/secondary-button"
 
@@ -57,54 +58,8 @@ const Home = ({ data }) => {
         <Button link="programs">{valueProp.cta}</Button>
         <div style={{ paddingTop: 40 }}>
           <h1 style={{ paddingBottom: 20 }}>{insights.title}</h1>
-          <div
-            style={{
-              display: `flex`,
-              flexDirection: `row`,
-              justifyContent: `space-evenly`,
-            }}
-          >
-            {topInsights.map(({ node }) => (
-              <div
-                key={node.id}
-                style={{
-                  border: `1px solid #E7ECEF`,
-                  borderTop: `3px solid #8e44ad`,
-                  marginBottom: 20,
-                  padding: 0,
-                  maxWidth: 400,
-                  alignSelf: `auto`,
-                }}
-              >
-                <Link to={`/insights/${node.slug}`}>
-                  <img
-                    alt={node.imageTitle.file.fileName}
-                    src={node.imageTitle.file.url}
-                    style={{ maxWidth: 400 }}
-                  />
-                </Link>
-                <div style={{ padding: 10 }}>
-                  <Link
-                    to={`/insights/${node.slug}`}
-                    style={{ textDecoration: `none` }}
-                  >
-                    <h4
-                      style={{
-                        fontWeight: `bold`,
-                        textAlign: `left`,
-                        fontSize: `1.25rem`,
-                        paddingBottom: 10,
-                      }}
-                    >
-                      {node.title}
-                    </h4>
-                  </Link>
-                  <p>{node.description.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <SecondaryButton link={insights.ctaPage}>
+          <LatestInsights insights={topInsights} />
+          <SecondaryButton link={`${insights.ctaPage}`}>
             {insights.cta}
           </SecondaryButton>
         </div>
@@ -197,9 +152,9 @@ export const HomeQuery = graphql`
             description
           }
           imageTitle {
-            file {
-              url
-              fileName
+            title
+            fluid(quality: 99) {
+              ...GatsbyContentfulFluid_withWebp
             }
           }
         }

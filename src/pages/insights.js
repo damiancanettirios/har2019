@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import Img from "gatsby-image"
 import { css } from "@emotion/core"
 
 import Layout from "../components/layout"
@@ -56,8 +57,8 @@ const InsightsPage = ({ data }) => {
               >
                 <p>{node.postType}</p>
               </div>
-              <img
-                src={node.imageTitle.file.url}
+              <Img
+                fluid={node.imageTitle.fluid}
                 alt={node.imageTitle.title}
                 style={{ maxWidth: 273, margin: `0 auto` }}
               />
@@ -123,8 +124,8 @@ export const insightsQuery = graphql`
             }
           }
           imageTitle {
-            file {
-              url
+            fluid(quality: 99) {
+              ...GatsbyContentfulFluid_withWebp
             }
             title
           }

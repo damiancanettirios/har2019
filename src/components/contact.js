@@ -9,13 +9,18 @@ const Main = styled("div")`
   margin-top: 40px;
   width: auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
+
+  @media (min-width: 701px) {
+    flex-direction: row;
+  }
 `
 
 const ContactMessage = styled("div")`
   align-content: center;
   align-self: auto;
+  margin: 0 auto;
   max-width: 400px;
 `
 
@@ -24,11 +29,11 @@ const Contact = () => {
     <Main>
       <ContactMessage>
         <h2>How can we help your business?</h2>
-        <SecondaryButton link="/contact/">LET'S WORK TOGETHER</SecondaryButton>
+        <SecondaryButton link="contact">LET'S WORK TOGETHER</SecondaryButton>
       </ContactMessage>
       <ContactMessage>
         <h2>What programs can help you grow?</h2>
-        <SecondaryButton link="/programs/">FIND GRANT PROGRAMS</SecondaryButton>
+        <SecondaryButton link="programs">FIND GRANT PROGRAMS</SecondaryButton>
       </ContactMessage>
     </Main>
   )

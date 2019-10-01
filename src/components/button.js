@@ -7,11 +7,12 @@ const ButtonArea = styled("div")`
   justify-content: center;
 `
 
-const Button = styled(Link)`
+const Button = styled("button")`
   align-self: center;
   height: 60px;
   width: auto;
   border: 1px solid #009688;
+  background: transparent;
   text-decoration: none;
   margin: 3rem 0;
   display: inline-block;
@@ -43,9 +44,11 @@ const Button = styled(Link)`
 
 const ButtonBox = ({ children, link }) => (
   <ButtonArea>
-    <Button to={link}>
-      <h4>{children}</h4>
-    </Button>
+    <Link to={`/${link}`}>
+      <Button>
+        <h4>{children}</h4>
+      </Button>
+    </Link>
   </ButtonArea>
 )
 

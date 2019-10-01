@@ -30,12 +30,24 @@ module.exports = {
     `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-remark`,
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: spaceId,
         accessToken: accessToken,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-material-ui`,
+      // If you want to use styled components, in conjunction to Material-UI, you should:
+      // - Change the injection order
+      // - Add the plugin
+      options: {
+        // stylesProvider: {
+        //   injectFirst: true,
+        // },
       },
     },
     {

@@ -7,8 +7,9 @@ const ButtonArea = styled("div")`
   justify-content: center;
 `
 
-const Button = styled(Link)`
+const Button = styled("button")`
   align-self: center;
+  background: transparent;
   height: 60px;
   width: auto;
   border: 1px solid #8e44ad;
@@ -18,7 +19,7 @@ const Button = styled(Link)`
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.2;
-  padding: 1.25rem 2rem;
+  padding: 1.25rem 1.5rem;
   text-align: center;
   text-transform: uppercase;
   transition: all 200ms;
@@ -43,9 +44,11 @@ const Button = styled(Link)`
 
 const SecondaryButton = ({ children, link }) => (
   <ButtonArea>
-    <Button to={link}>
-      <h4>{children}</h4>
-    </Button>
+    <Link to={`/${link}`}>
+      <Button>
+        <h4>{children}</h4>
+      </Button>
+    </Link>
   </ButtonArea>
 )
 
