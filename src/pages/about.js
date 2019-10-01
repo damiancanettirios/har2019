@@ -60,14 +60,13 @@ const About = ({ data }) => {
                 ) : null}
               </div>
               {node.longBio != null ? (
-                <div
-                  style={{ width: `90%`, marginTop: 30, background: `#ecf0f1` }}
-                >
+                <div style={{ marginTop: 30, background: `#ecf0f1` }}>
                   <div
                     style={{
                       display: `flex`,
                       flexDirection: `row`,
                       justifyContent: `space-between`,
+                      width: `95%`,
                     }}
                   >
                     <p
