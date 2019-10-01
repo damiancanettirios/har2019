@@ -100,7 +100,8 @@ const About = ({ data }) => {
                         fontSize: `1.1rem`,
                         textAlign: `left`,
                         marginTop: 20,
-                        width: `90%`,
+                        paddingLeft: 5,
+                        paddingRight: 5,
                       }}
                     >
                       {node.longBio.longBio}

@@ -9,7 +9,7 @@ const TextBox = styled("div")`
   border: 1px solid grey;
   height: 100%;
   justify-content: flex-end;
-  padding: 2rem 0 2rem 0;
+  padding-top: 2rem;
   margin: 2rem 0.5rem 0 0.5rem;
   width: 300px;
   h1 {
