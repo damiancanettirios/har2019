@@ -63,7 +63,7 @@ const LongBio = ({ longBio }) => {
           )}
         </div>
       ) : (
-        <div style={{ paddingBottom: `3rem` }} />
+        <div style={{ paddingBottom: `3.5rem` }} />
       )}
     </>
   )
