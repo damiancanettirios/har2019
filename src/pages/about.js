@@ -1,11 +1,7 @@
-import React, { useState } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {
-  faAt,
-  faChevronUp,
-  faChevronDown,
-} from "@fortawesome/free-solid-svg-icons"
+import { faAt } from "@fortawesome/free-solid-svg-icons"
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons"
 
 import Layout from "../components/layout"
@@ -14,11 +10,7 @@ import GridBox from "../components/grid-box"
 import DisplayBox from "../components/display-box"
 import SocialLink from "../components/social-link"
 
-//material UI
-import IconButton from "@material-ui/core/Button"
-
 const About = ({ data }) => {
-  const [active, setActive] = useState(true)
   const heroContent = data.heroContent
   const heroImage = data.heroImage.imageTitle
   const team = data.team
@@ -60,55 +52,7 @@ const About = ({ data }) => {
                   </SocialLink>
                 ) : null}
               </div>
-              {node.longBio != null ? (
-                <div
-                  style={{
-                    marginTop: 30,
-                    background: `#ecf0f1`,
-                    width: `100%`,
-                  }}
-                >
-                  <div
-                    style={{
-                      display: `flex`,
-                      flexDirection: `row`,
-                      justifyContent: `space-between`,
-                    }}
-                  >
-                    <p
-                      style={{
-                        fontSize: `1.1rem`,
-                        textAlign: `left`,
-                        paddingLeft: 5,
-                      }}
-                    >
-                      BACKGROUND
-                    </p>
-                    <IconButton onClick={() => setActive(!active)}>
-                      {!active ? (
-                        <FontAwesomeIcon icon={faChevronDown} />
-                      ) : (
-                        <FontAwesomeIcon icon={faChevronUp} />
-                      )}
-                    </IconButton>
-                  </div>
-                  {!active ? (
-                    <section />
-                  ) : (
-                    <p
-                      style={{
-                        fontSize: `1.1rem`,
-                        textAlign: `left`,
-                        marginTop: 20,
-                        paddingLeft: 5,
-                        paddingRight: 5,
-                      }}
-                    >
-                      {node.longBio.longBio}
-                    </p>
-                  )}
-                </div>
-              ) : null}
+              <LongBio longBio={node.longBio} />
             </DisplayBox>
           ))}
         </GridBox>
