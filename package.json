@@ -32,7 +32,7 @@
     "gatsby-plugin-sharp": "^2.2.18",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-contentful": "^2.1.29",
-    "gatsby-transformer-remark": "^2.6.26",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.2.19",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
